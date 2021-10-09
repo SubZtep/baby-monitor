@@ -1,8 +1,24 @@
 <template lang="pug">
-h2 Home
+.mt-15.flex.justify-between.content-center.gap-15.flex-col.text-center
+  //- h2 Home
+  button.btn.text-2xl.border-cyan-700.border-15px.bg-green-800(
+    :disabled="store.dB === undefined"
+    @click="alertOn = !alertOn")
+    template(v-if="alertOn") Alert is ON ---———=😿=———--- from {{cryLevel}}dB
+    template(v-else) Click for alert — 👼 — from {{cryLevel}}dB
 
-p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum ut tristique et egestas. Varius sit amet mattis vulputate enim nulla. In fermentum et sollicitudin ac orci phasellus. Aliquet lectus proin nibh nisl condimentum id venenatis a. Vitae sapien pellentesque habitant morbi. Scelerisque felis imperdiet proin fermentum leo vel. Amet consectetur adipiscing elit ut. Vel elit scelerisque mauris pellentesque pulvinar pellentesque. Scelerisque felis imperdiet proin fermentum leo vel orci porta. A scelerisque purus semper eget duis. Vitae sapien pellentesque habitant morbi tristique senectus et netus et. Nunc consequat interdum varius sit amet mattis vulputate. Mollis aliquam ut porttitor leo a. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo. Sit amet nisl purus in mollis. Sit amet consectetur adipiscing elit duis tristique. Maecenas pharetra convallis posuere morbi leo urna. Quis lectus nulla at volutpat diam ut venenatis tellus.
-p Aliquam ut porttitor leo a diam sollicitudin. Purus semper eget duis at tellus. Aliquam purus sit amet luctus venenatis. Dui nunc mattis enim ut tellus. Lorem dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. Sed euismod nisi porta lorem mollis aliquam ut porttitor leo. Cursus eget nunc scelerisque viverra mauris in. Aliquet bibendum enim facilisis gravida neque convallis a cras. Elementum nibh tellus molestie nunc non blandit massa enim. Ultricies mi eget mauris pharetra et. Viverra justo nec ultrices dui sapien eget mi proin sed. Ultrices eros in cursus turpis massa tincidunt dui ut. Leo vel orci porta non pulvinar neque laoreet suspendisse. Eget arcu dictum varius duis at. Nisl nisi scelerisque eu ultrices vitae.
+  input(type="range" :min="-30" :max="0" v-model="cryLevel")
 
-TuneMic
+  .text-4xl.my-4.font-mono {{store.roundDB ?? 'unknown'}} dB
+
+TuneMic.mt-15
 </template>
+
+<script lang="ts" setup>
+import { useAudioStore } from "~/stores/audio"
+
+const cryLevel = ref(-5)
+const alertOn = ref(false)
+
+const store = useAudioStore()
+</script>
