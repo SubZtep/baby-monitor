@@ -1,0 +1,18 @@
+{
+  "deno.enable": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "windicss.enableCodeFolding": true,
+  "windicss.foldByLength": true,
+  "css.validate": false,
+  "css.lint.emptyRules": "ignore",
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "scss.lint.emptyRules": "ignore",
+  "less.lint.emptyRules": "ignore",
+  "jest.autoRun": "off",
+  "files.associations": {
+    ".prettierrc": "yaml"
+  }
+}
