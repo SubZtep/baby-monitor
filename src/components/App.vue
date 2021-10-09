@@ -1,4 +1,5 @@
 <template lang="pug">
 h1 Baby Monitor
-router-view
+.px-4(class="md:container md:mx-auto")
+  router-view
 </template>

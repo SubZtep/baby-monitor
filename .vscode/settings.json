@@ -13,6 +13,7 @@
   "less.lint.emptyRules": "ignore",
   "jest.autoRun": "off",
   "files.associations": {
-    ".prettierrc": "yaml"
+    ".prettierrc": "yaml",
+    "*.css": "postcss"
   }
 }

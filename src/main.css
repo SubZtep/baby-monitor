@@ -1,0 +1,35 @@
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @apply bg-blue-gray-900 text-amber-50;
+}
+
+* {
+  outline: none !important;
+}
+
+h1, h2, h3 {
+  @apply text-amber-200 text-center;
+}
+
+h1 {
+  @apply @text-4xl;
+}
+
+h2 {
+  @apply @text-3xl;
+}
+
+h3 {
+  @apply @text-xl;
+}
+
+p, h2 {
+  @apply my-4;
+}
