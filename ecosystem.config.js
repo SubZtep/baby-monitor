@@ -1,7 +1,7 @@
 const { join } = require("path")
 
 module.exports = {
-  name: "depth",
+  name: "baby",
   script: "serve",
   watch: "dist",
   cwd: join(__dirname, "dist"),
