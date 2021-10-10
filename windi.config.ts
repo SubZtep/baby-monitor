@@ -16,9 +16,11 @@ export default defineConfig({
           backgroundColor: colors.blueGray[500],
           "&:hover": {
             borderStyle: "solid",
+            transform: "translate(-1px, -1px)",
           },
           "&:active": {
             borderStyle: "inset",
+            transform: "translate(2px, 2px)",
           },
           "&:disabled": {
             borderStyle: "ridge",

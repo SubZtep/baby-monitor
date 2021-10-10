@@ -37,3 +37,8 @@ h3 {
 p, h2 {
   @apply my-4;
 }
+
+.scale {
+  transform: scaleY(3);
+  filter: saturate(0.5) invert(1);
+}
