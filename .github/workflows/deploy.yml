@@ -1,0 +1,31 @@
+name: Build & Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "npm"
+      - name: Create env file
+        run: |
+          echo VITE_SUPABASE_URL=${{ secrets.SUPABASE_URL }} > .env
+          echo VITE_SUPABASE_KEY=${{ secrets.SUPABASE_SECRET }} >> .env
+      - name: All the npm scripts
+        run: |
+          npm i
+          npm run build
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "dist/*,dist/**/*"
+          target: ${{ secrets.TARGET }}

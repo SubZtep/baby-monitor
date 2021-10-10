@@ -10,6 +10,10 @@ html {
   @apply bg-blue-gray-900 text-amber-50;
 }
 
+body {
+  background-image: linear-gradient(to top, transparent, #000a)
+}
+
 * {
   outline: none !important;
 }
