@@ -4,6 +4,9 @@ import type { DeepNestObject } from "windicss/types/interfaces"
 import colors from "windicss/colors"
 
 export default defineConfig({
+  shortcuts: {
+    row: "flex justify-between content-center",
+  },
   plugins: [
     plugin(({ addComponents }) => {
       const buttons: DeepNestObject = {
@@ -25,7 +28,7 @@ export default defineConfig({
           "&:disabled": {
             borderStyle: "ridge",
             cursor: "not-allowed",
-            opacity: "0.65",
+            opacity: "0.5",
           },
         },
       }

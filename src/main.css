@@ -38,7 +38,25 @@ p, h2 {
   @apply my-4;
 }
 
-.scale {
-  transform: scaleY(2);
-  filter: saturate(0.5) invert(1);
+.btn {
+  padding: 0.5rem 1rem;
+  border-width: 0.25rem;
+  border-style: outset;
+  border-radius: 0.5rem;
+
+  @apply text-gray-200 bg-blue-gray-500;
+
+  &:hover {
+    borderStyle: solid;
+    transform: translate(-1px; -1px);
+  }
+  &:active {
+    borderStyle: inset;
+    tansform: translate(2px; 2px);
+  }
+  &:disabled {
+    borderStyle: ridge;
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
 }

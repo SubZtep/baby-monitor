@@ -4,6 +4,7 @@ import Vue from "@vitejs/plugin-vue"
 import Components from "unplugin-vue-components/vite"
 import AutoImport from "unplugin-auto-import/vite"
 import WindiCSS from "vite-plugin-windicss"
+import Mix from "vite-plugin-mix"
 
 export default defineConfig(() => {
   return {
@@ -21,15 +22,13 @@ export default defineConfig(() => {
       }),
       AutoImport({
         include: [/\.[tj]sx?$/, /\.vue\??/],
-        imports: ["vue", "@vueuse/core", { "@vueuse/core": ["get", "set"] }],
+        imports: ["vue", "@vueuse/core", { "@vueuse/core": ["get", "set", "and", "not"] }],
         dts: "src/types/auto-imports.d.ts",
       }),
       WindiCSS(),
+      Mix({
+        handler: "./handler.ts",
+      }),
     ],
-    server: {
-      fs: {
-        allow: [".."],
-      },
-    },
   }
 })

@@ -1,25 +1,25 @@
 <template lang="pug">
-//- h3 tune
-
-//- p dB: {{ dB }}
-
-button.btn.text-2xl.font-bold.w-full(
+button.btn.text-xl.font-bold.w-full(
   :class="['hover:opacity-100', enabled ? 'opacity-50' : 'opacity-90']"
-  @click="enabled = !enabled") {{ enabled ? 'disable' : 'enable' }} mic
+  @click="enabled = !enabled") → {{ enabled ? 'disable' : 'enable' }} mic ←
 </template>
 
 <script lang="ts" setup>
+import { storeToRefs } from "pinia"
 import { useAudio } from "~/composables/useAudio"
 import { useAudioStore } from "~/stores/audio"
 
-const { stream, enabled } = useUserMedia({
+const { stream, enabled, stop } = useUserMedia({
   videoDeviceId: false,
   enabled: true,
 })
 
+const audio = useAudioStore()
+const { dB: storeDB } = storeToRefs(audio)
 const { dB } = useAudio(stream)
+syncRef(dB, storeDB)
 
-const store = useAudioStore()
-
-store.dB = dB
+onBeforeUnmount(() => {
+  stop()
+})
 </script>

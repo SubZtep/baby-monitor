@@ -1,14 +1,9 @@
 import { defineStore } from "pinia"
 
-export const useAudioStore = defineStore("video", {
+export const useAudioStore = defineStore("audio", {
   state: () => ({
     dB: undefined as number | undefined,
     fftSize: 8_192, //4_096,
-
-    channelCount: 1,
-    sampleRate: 48_000,
-    sampleSize: 32,
-    echoCancellation: false,
   }),
   getters: {
     roundDB: state => (state.dB ? Math.round(state.dB) : undefined),
