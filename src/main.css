@@ -39,6 +39,6 @@ p, h2 {
 }
 
 .scale {
-  transform: scaleY(3);
+  transform: scaleY(2);
   filter: saturate(0.5) invert(1);
 }

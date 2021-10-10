@@ -7,7 +7,7 @@
     template(v-if="alertOn") Alert is ON ---———=😿=———--- from {{cryLevel}}dB
     template(v-else)
       .font-mono.italic // TODO:
-      .font-sans Click for alert -— 👼 🢚 🎃 —- from {{cryLevel}}dB
+      .font-sans Click for alert -— 👼 ⇒ 🎃 —- from {{cryLevel}}dB
 
   input.scale(type="range" :min="-30" :max="0" v-model="cryLevel")
 
