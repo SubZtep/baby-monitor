@@ -4,6 +4,12 @@ import type { DeepNestObject } from "windicss/types/interfaces"
 import colors from "windicss/colors"
 
 export default defineConfig({
+  theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+    },
+  },
   shortcuts: {
     row: "flex justify-between content-center",
   },

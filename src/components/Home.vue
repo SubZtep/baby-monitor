@@ -69,7 +69,7 @@ whenever(and(alertOn, overLimit, not(alerting)), () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      call: settings.alertPhone,
+      phone: settings.alertPhone,
     }),
   })
 })

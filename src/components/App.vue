@@ -1,6 +1,6 @@
 <template lang="pug">
 h1.head Baby Monitor
-.px-4(class="md:container md:mx-auto")
+.container.max-w-screen-md
   router-view
 
 button.btn.btn-reload(@click="reload") Reload Everything
