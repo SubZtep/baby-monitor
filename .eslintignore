@@ -1,4 +1,5 @@
 dist/
+build/
 public/
 node_modules/
 src/types/auto-imports.d.ts

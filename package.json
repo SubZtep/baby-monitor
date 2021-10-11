@@ -8,8 +8,8 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview",
+    "build": "vite build",
+    "serve": "node build/server.js",
     "test": "jest",
     "lint": "eslint src"
   },
