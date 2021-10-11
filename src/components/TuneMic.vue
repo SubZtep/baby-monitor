@@ -1,5 +1,5 @@
 <template lang="pug">
-button.btn.text-xl.font-bold.w-full(
+button.btn.text-xl.font-bold.tracking-3px(
   :class="['hover:opacity-100', enabled ? 'opacity-50' : 'opacity-90']"
   @click="enabled = !enabled") → {{ enabled ? 'disable' : 'enable' }} mic ←
 </template>

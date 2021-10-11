@@ -1,6 +1,5 @@
 html,
-body,
-#app {
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -16,6 +15,27 @@ body {
 
 * {
   outline: none !important;
+}
+
+.cloak {
+  display: revert;
+}
+
+header, footer {
+  @apply text-center;
+}
+
+header {
+  @apply bg-gradient-52 p-1 opacity-80;
+  filter: invert(1);
+  h1 {
+    @apply font-serif font-semibold;
+  }
+}
+
+footer {
+  transform: scale(0.666);
+  opacity: 0.5;
 }
 
 h1, h2, h3 {
@@ -58,5 +78,9 @@ p, h2 {
     borderStyle: ridge;
     cursor: not-allowed;
     opacity: 0.65;
+  }
+
+  &.btn-reload {
+    @apply opacity-50 font-mono text-lg block mx-auto bg-opacity-30;
   }
 }

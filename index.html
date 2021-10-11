@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>🚼 Baby Monitor</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baby Monitor</title>
+    <style type="text/css">
+      .cloak {
+        display: none;
+      }
+    </style>
   </head>
   <body>
+    <header class="cloak">
+      <h1>Baby Monitor</h1>
+    </header>
+
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+
+    <footer class="cloak my-2">
+      <button onclick="location.reload()" class="cloak btn btn-reload">Reload Everything</button>
+      — on <a href="https://github.com/SubZtep/baby-monitor#readme" rel="noopener noreferrer">GitHub</a> —
+    </footer>
   </body>
 </html>

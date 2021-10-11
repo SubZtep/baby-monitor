@@ -1,12 +1,9 @@
 import type { Handler } from "vite-plugin-mix"
 import { config } from "dotenv"
-import { join } from "path"
-import { call } from "~/call"
-config()
+import twilio from "twilio"
 
-export function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+config()
+const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE } = process.env
 
 export const handler: Handler = (req, res, next) => {
   if (req.path === "/alert") {
@@ -26,11 +23,8 @@ export const handler: Handler = (req, res, next) => {
         return res.end()
       }
 
-      console.log(`Calling ${phone}`, Date.now())
-      await sleep(10000)
-      console.log("Call end", Date.now())
-      return
-      // return await call(phone, join(origin, "/alerted"))
+      const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+      await client.calls.create({ to: phone, from: TWILIO_PHONE!, url: `${origin}/alerted` })
     })
     return res.end("OK")
   }

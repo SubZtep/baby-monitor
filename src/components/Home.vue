@@ -1,6 +1,5 @@
 <template lang="pug">
 .home.row.flex-col.text-2xl.select-none(v-if="!alerting")
-
   .row.text-lime-300
     .text-left Live measurement:
     .font-mono {{audio.roundDB ?? 'unknown'}} dB
@@ -9,7 +8,7 @@
     .text-left Accepted limit:
     .min-w-50
       .text-right.font-mono {{settings.cryLevel}} dB
-      input.scale.invert(type="range" :min="-30" :max="0" v-model="settings.cryLevel")
+      input.scale.invert(type="range" :min="-100" :max="0" v-model="settings.cryLevel")
 
   .row.text-lime-300
     .text-left Sensed {{count > 1 ? 'cries' : 'cry'}}:
@@ -38,7 +37,8 @@
   hr.border-gray-700
   input.phone(type="tel" placeholder="Phone Number to alert" v-model.trim="settings.alertPhone")
   hr.border-gray-800
-  TuneMic
+  div
+    TuneMic
 
 h1.my-15(v-else) Alerting...
 </template>
@@ -93,7 +93,7 @@ whenever(and(alertOn, overLimit, not(alerting)), () => {
   }
 
   .phone {
-    @apply text-gray-100 bg-cyan-700 text-lg px-2 py-1 rounded-md;
+    @apply text-gray-100 bg-cyan-900 text-lg px-2 py-1 rounded-md tracking-wider text-center font-semibold;
   }
 }
 </style>
