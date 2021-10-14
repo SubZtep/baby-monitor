@@ -24,13 +24,13 @@ export const handler: Handler = (req, res, next) => {
       }
 
       const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-      await client.calls.create({ to: phone, from: TWILIO_PHONE!, url: `${origin}/alerted` })
+      await client.calls.create({
+        to: phone,
+        from: TWILIO_PHONE!,
+        twiml: "<Response><Say>Baby is awake!</Say></Response>",
+      })
     })
     return res.end("OK")
-  }
-
-  if (req.path === "/alerted") {
-    console.log("ALERTED", req)
   }
 
   next()

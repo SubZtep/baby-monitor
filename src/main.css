@@ -22,7 +22,7 @@ body {
 }
 
 header, footer {
-  @apply text-center;
+  @apply text-center select-none;
 }
 
 header {

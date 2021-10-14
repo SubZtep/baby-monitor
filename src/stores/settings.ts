@@ -5,5 +5,5 @@ export const useSettingsStore = defineStore("settings", {
     cryLevel: useStorage("cryLevel", -13),
     cryLimit: useStorage("cryLimit", 500),
     alertPhone: useStorage("alertPhone", ""),
-  })
+  }),
 })

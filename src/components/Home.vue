@@ -27,8 +27,8 @@
     @click="alertOn = !alertOn")
     template(v-if="alertOn")
       | Alert is ON
-      br
-      | 😿
+      div(v-if="isActive") 😿
+      .font-bold(v-else) Warning, Screen Lock isn’t available!
     template(v-else)
       | Click for alert
       br
@@ -54,11 +54,20 @@ const alerting = ref(false)
 const { count, inc } = useCounter()
 const overLimit = computed(() => get(count) >= get(settings.cryLimit))
 const validPhone = computed(() => get(settings.alertPhone).length > 0)
+const { isActive, request, release } = useWakeLock()
 
 watch(
   () => audio.dB,
   dB => (dB || Infinity) > get(settings.cryLevel) && inc()
 )
+
+watch(alertOn, isOn => {
+  if (isOn) {
+    request("screen")
+  } else {
+    release()
+  }
+})
 
 whenever(and(alertOn, overLimit, not(alerting)), () => {
   set(alerting, true)
@@ -72,6 +81,8 @@ whenever(and(alertOn, overLimit, not(alerting)), () => {
       phone: settings.alertPhone,
     }),
   })
+
+  release()
 })
 </script>
 

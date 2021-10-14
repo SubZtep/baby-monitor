@@ -4,9 +4,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    App: typeof import('C:/Users/subzt/Code/baby-monitor/src/components/App.vue')['default']
-    Home: typeof import('C:/Users/subzt/Code/baby-monitor/src/components/Home.vue')['default']
-    TuneMic: typeof import('C:/Users/subzt/Code/baby-monitor/src/components/TuneMic.vue')['default']
+    App: typeof import('./../components/App.vue')['default']
+    Home: typeof import('./../components/Home.vue')['default']
+    TuneMic: typeof import('./../components/TuneMic.vue')['default']
   }
 }
 
