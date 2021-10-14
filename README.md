@@ -19,6 +19,7 @@ Concept app that runs on an old phone in the baby's room, once mic detects noise
    ```
 3. ```sh
    $ npm run serve
+   # pm2 start build/server.js -- --port 2021
    ```
 
 ## Known issues
