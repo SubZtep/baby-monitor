@@ -5,7 +5,7 @@ import Components from "unplugin-vue-components/vite"
 import AutoImport from "unplugin-auto-import/vite"
 import WindiCSS from "vite-plugin-windicss"
 import Mix from "vite-plugin-mix"
-import { VitePWA } from "vite-plugin-pwa"
+//import { VitePWA } from "vite-plugin-pwa"
 
 export default defineConfig(() => {
   return {
@@ -16,7 +16,7 @@ export default defineConfig(() => {
     },
     plugins: [
       Vue(),
-      VitePWA(),
+      //VitePWA(),
       Components({
         dirs: ["src/components"],
         extensions: ["vue", "ts"],
